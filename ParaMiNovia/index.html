@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Universo Para Ti</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Librerías de Three.js para la galaxia 3D -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+  <!-- Modal de Inicio -->
+  <div id="modal-inicio" class="card">
+    <div class="heart">❤️</div>
+    <h2>Feliz Día de la Novia,<br>mi amor</h2>
+    <p class="subtext">He creado un universo entero para ti.</p>
+    <button id="btn-iniciar">ENTRAR A NUESTRO UNIVERSO</button>
+  </div>
+
+  <!-- Pantalla de Carga -->
+  <div id="modal-carga" class="card hidden">
+    <div class="heart">❤️</div>
+    <h2>Creando nuestra galaxia...</h2>
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <span id="porcentaje">0%</span>
+  </div>
+
+  <!-- Contenedor del Universo 3D -->
+  <div id="universo-container" class="hidden">
+    <!-- Botón Superior "Escrito para ti" -->
+    <div class="top-button-container">
+      <button id="btn-escrito">📖 Escrito para ti</button>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <div class="overlay-text">
+      <h1>MI UNIVERSO</h1>
+      <p>Haz clic en las palabras o estrellas para descubrir notas de amor</p>
+    </div>
+  </div>
+
+  <!-- Modal / Pop-up para los Poemas y Mensajes -->
+  <div id="modal-poema" class="modal-poema hidden">
+    <div class="modal-content">
+      <span id="btn-cerrar">&times;</span>
+      <h2 id="poema-titulo">Título</h2>
+      <hr>
+      <div class="scroll-poema">
+        <p id="poema-texto"></p>
+        
+        <!-- Contenedor para la imagen al final de la carta -->
+        <div id="contenedor-imagen-poema" class="hidden">
+          <!-- Asegúrate de tener tu imagen guardada como "foto.jpg" en la misma carpeta -->
+          <img id="imagen-poema" src="foto.jpg" alt="Foto juntos">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio de fondo -->
+  <audio id="musica" loop src="PARATI.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

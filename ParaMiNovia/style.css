@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #020008;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tarjetas Modales de Carga e Inicio */
+.card {
+  background: rgba(15, 8, 25, 0.9);
+  border: 1px solid rgba(255, 105, 180, 0.4);
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  width: 90%;
+  max-width: 380px;
+  z-index: 100;
+}
+
+.heart {
+  font-size: 45px;
+  animation: beat 1.2s infinite ease-in-out;
+  margin-bottom: 15px;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.subtext {
+  font-size: 0.85rem;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+button {
+  background: linear-gradient(45deg, #ff2a75, #ff60a8);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 42, 117, 0.7);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 42, 117, 0.9);
+}
+
+/* Botón Superior Flotante "Escrito para ti" */
+.top-button-container {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+#btn-escrito {
+  background: rgba(255, 42, 117, 0.3);
+  border: 1px solid #ff69b4;
+  backdrop-filter: blur(8px);
+  padding: 12px 30px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 10px rgba(255, 105, 180, 0.4); }
+  to { box-shadow: 0 0 25px rgba(255, 105, 180, 0.9); }
+}
+
+/* Barra de carga */
+.progress-bar {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  height: 8px;
+  border-radius: 4px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff2a75, #ff99dd);
+  transition: width 0.1s;
+}
+
+/* Galaxia 3D Canvas */
+#universo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#canvas-container {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.overlay-text h1 {
+  font-size: 1.8rem;
+  letter-spacing: 5px;
+  color: #ffb3e6;
+  text-shadow: 0 0 15px #ff00aa;
+}
+
+.overlay-text p {
+  font-size: 0.8rem;
+  color: #ddd;
+  margin-top: 5px;
+}
+
+/* Modal del Poema con Scroll */
+.modal-poema {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  background: rgba(25, 10, 35, 0.95);
+  border: 1px solid #ff69b4;
+  box-shadow: 0 0 35px rgba(255, 105, 180, 0.6);
+  padding: 30px 25px;
+  border-radius: 20px;
+  max-width: 450px;
+  width: 85%;
+  max-height: 80vh;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.3s ease-out;
+}
+
+.scroll-poema {
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.scroll-poema::-webkit-scrollbar {
+  width: 5px;
+}
+.scroll-poema::-webkit-scrollbar-thumb {
+  background: #ff2a75;
+  border-radius: 10px;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+#btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  color: #ff69b4;
+  cursor: pointer;
+}
+
+#poema-titulo {
+  color: #ff99dd;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff2a75, transparent);
+  margin-bottom: 15px;
+}
+
+#poema-texto {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #eee;
+  white-space: pre-line;
+  text-align: left;
+}
+
+/* Cursor parpadeante estilo máquina de escribir */
+#poema-texto::after {
+  content: '|';
+  margin-left: 2px;
+  color: #ff69b4;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Estilos para la Imagen Final */
+#contenedor-imagen-poema {
+  margin-top: 20px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#contenedor-imagen-poema.mostrar-foto {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#imagen-poema {
+  max-width: 100%;
+  max-height: 260px;
+  border-radius: 15px;
+  border: 2px solid #ff69b4;
+  box-shadow: 0 0 25px rgba(255, 42, 117, 0.7);
+  object-fit: cover;
+}
+
+.hidden {
+  display: none !important;
+}
